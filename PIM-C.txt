@@ -1,0 +1,57 @@
+#include <stdio.h>	
+//CADASTRO DE PACIENTES,FUNCIONARIOS, MEDICOS, CONSULTAS
+//RECLAMACOES, ELEGIOS DOS CLIENTES, CANCELAMENTOS DAS CONSULTAS
+//RELATORIOS - PACIENTES POR UNIDADE, REDE, FATURAMENTO	
+	
+int main(){	
+
+    int escolha;
+    char cpf[14], nome[60], endereco[60], tipo[30]; 
+
+	printf("\n ############# MENU SISTEMA ############### \n");
+    printf("Bem vindo ao Sistema de Clinicas \n");
+
+ while(escolha!=4){
+
+    printf("\n Escolha uma das opcoes abaixo: \n");
+    printf("1 - Cadastar Cliente \n");
+    printf("2 - Listar Clientes \n");
+    printf("3 - Remover Clientes \n");
+    printf("4 - Sair \n");
+    scanf("%d", &escolha);
+    
+    switch(escolha){
+    
+		case 1:
+			printf("\n >>>>>> Cadastre o Cliente <<<<<< \n");
+			printf("\n Tipo: ");
+    		scanf("%s", &tipo);
+			printf("\n Digite o CPF: ");
+    		scanf("%s", &cpf);
+			printf("\n Digite o Nome: ");
+    		scanf("%s", &nome);
+			printf("\n Digite o Endereco: ");
+    		scanf("%s", &endereco);
+			break;
+		case 2:
+			printf("\n >>>>>> Listar Clientes <<<<<< \n");
+			printf("\n Tipo: %s ", &tipo);
+			printf("\n Cpf: %s ", &cpf);
+			printf("\n Nome: %s ", &nome);
+			printf("\n Endereco: %s ", &endereco);
+			break;
+		case 3:
+			printf(">>>>>> Remover Clientes <<<<<<");
+			
+			break;	
+		case 4:
+			printf(">>>>>> Obrigado por usar nosso sistema <<<<<<");
+        
+		break;
+			
+    	
+	}
+ 
+ }
+	
+}
