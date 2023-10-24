@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>	
+//LOGIN
+int main(){	
+
+    char usuario[10], senha[10]; 
+
+	printf("\n ############# MENU SISTEMA ############### \n");
+    printf("Bem vindo ao Sistema de Clinicas \n");
+
+	printf("\n Usuario: ");
+	scanf("%s", &usuario);	
+	printf("\n Senha: ");
+	scanf("%s", &senha);
+	
+	char chave_usuario[10] = "admin";
+	char chave_senha[10]   = "admin";
+	
+	if((strcmp(usuario,chave_usuario) == 0) && (strcmp(senha,chave_senha) == 0)) {
+		printf("OI logado");
+	}else{
+		printf("Usuario ou senha errado ");
+	}
+	
+	return 0;
+}
