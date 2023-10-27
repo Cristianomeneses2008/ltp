@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+//     Códigos de controle
+//%d   = inteiro Ex: 1,2,3
+//%s   = string  Ex: "Aeiou"
+//%f   = float   Ex: 10.5
+//%2.f = float   Ex: 10.50
+
+int main(){
+
+
+    char usuario[10];
+	printf("\n Usuario: ");
+	scanf("%s", &usuario);
+	
+	printf("\n Resultado: %s  ",usuario);
+}
