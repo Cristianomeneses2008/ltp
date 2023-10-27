@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+main(){
+ 	
+ 	char NOME[100];
+ 	char SOBRENOME[100];
+
+	printf("Digite o primeiro nome: ");
+    scanf("%s", &NOME);
+    printf("Digite o sobrenome: ");
+    scanf("%s", &SOBRENOME);
+    printf("Seu nome completo : %s %s ", NOME,SOBRENOME);
+    return 0;
+	    
+ }
