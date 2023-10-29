@@ -1,0 +1,133 @@
+#include <stdio.h>
+#include <string.h>	
+#include <locale.h>
+
+//CADASTRO DE PACIENTES,FUNCIONARIOS, MEDICOS, CONSULTAS
+//RECLAMACOES, ELOGIOS DOS CLIENTES, CANCELAMENTOS DAS CONSULTAS
+//RELATORIOS - PACIENTES POR UNIDADE, REDE, FATURAMENTO	
+
+//LOGIN
+int main(){	
+	setlocale(LC_ALL, "Portuguese");
+    
+	int escolha;
+	int lin,col,num_cadastro=0,total_registros=0,zerar_col,codigo,removido=0;
+    //char cpf[14], endereco[60]; 
+    char usuario[10], senha[10]; 
+    char cadastros[50][50], tipo[50][50], cpf[50][50], nome[50][50], endereco[50][50];
+
+	printf("\n ############# MENU SISTEMA ############### \n");
+    printf("Bem vindo ao Sistema de Clinícas \n");
+
+	printf("Usuário: ");
+	scanf("%s", &usuario);	
+	printf("Senha: ");
+	scanf("%s", &senha);
+	
+	char chave_usuario[10] = "admin";
+	char chave_senha[10]   = "admin";
+	
+	if((strcmp(usuario,chave_usuario) == 0) && (strcmp(senha,chave_senha) == 0)) {//Logado
+			
+			while(escolha!=4){
+				
+				    printf("\nEscolha uma das opções abaixo: \n");
+				    printf("1 - Cadastar PACIENTES,FUNCIONARIOS, MEDICOS, CONSULTAS \n");
+				    printf("2 - Listar PACIENTES,FUNCIONARIOS, MEDICOS, CONSULTAS \n");
+				    printf("3 - Remover PACIENTES,FUNCIONARIOS, MEDICOS, CONSULTAS \n");
+				    printf("4 - Sair \n");
+				    scanf("%d", &escolha);
+				    
+				    switch(escolha){
+				    
+						case 1:
+							printf("Quantos cadastros vai fazer? \n");
+				            scanf("%d",&num_cadastro);
+				
+				            for (lin = 0; lin < num_cadastro; lin++) {
+								total_registros++;
+								printf("\n >>>>>> Registre os %d cadastros<<<<<< \n",lin);
+								
+								for(col=0; col < 1;) {	
+									
+									do{
+										printf("[%d]-[%d]Qual o codigo do cadastro? O codigo tem que ser diferente de 0 \n",lin, col);
+			                    		scanf("%d",&cadastros[lin][col]);
+		                    		}while(cadastros[lin][col] == 0);
+										col++;
+									printf("Tipo: \n");
+                    				scanf("%s", &tipo[lin]);
+								    printf("Digite o Cpf: \n");
+                    				scanf("%s", &cpf[lin]);
+								    printf("Digite o Nome: \n");
+                    				scanf("%s", &nome[lin]);
+								}
+
+							}
+							break;
+						case 2:
+							
+							if(total_registros = 0){
+				                printf("\n >>>>> Nao ha nenhum cadastro <<<< \n");
+				                break;
+				            }
+	
+							 for (lin=0; lin < num_cadastro; lin++){
+														 	
+					            	printf("########Listar Cadastro: %d ############### \n",num_cadastro);
+					                for (col=0; col < 1;){
+						                printf("Codigo do cadastro m[%d][%d] = %d \n", lin, col, cadastros[lin][col]);
+						                col++;
+					                }
+						                printf("Tipo: %s\n",tipo[lin]);
+						                printf("Cpf: %s\n",cpf[lin]);
+						                printf("Nome: %s\n",nome[lin]);
+				            }
+							
+							break;
+						case 3:
+				            printf("Qual o codigo do cadastro?\n");
+				            scanf("%d", &codigo);
+				
+				                for(lin=0; lin < num_cadastro; lin++){
+				                        
+				                    for(col=0; col < 1; col++){
+				                    	
+				                        if(codigo == cadastros[lin][col]){
+				                                for(col=0; col < 1; col++){
+				                                	zerar_col = lin;
+				                                    cadastros[zerar_col][col] = 0;
+				                                    printf("registro removido com sucesso \n");
+				                                    removido++;
+												}
+											strcpy(tipo[zerar_col], " ");
+											strcpy(cpf[zerar_col], " ");
+											strcpy(nome[zerar_col], " ");	
+
+				                            break;
+				                        }else{
+				                        	if(removido == 0){
+						                        printf("não localizado o codigo \n");
+						                        removido = 0;
+											}
+					                        break;
+				                        }
+				                    }
+				                }
+							
+							break;	
+						case 4:
+							printf(">>>>>> Obrigado por usar nosso sistema <<<<<<");
+				        
+						break;
+										    	
+					}
+				 
+				 }
+
+	}else{
+		printf("Usuario ou senha errado ");
+	}
+	
+	return 0;
+}
